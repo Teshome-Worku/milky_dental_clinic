@@ -40,7 +40,6 @@ export const services = [
       "Routine examinations that help detect dental problems early and maintain long-term oral health.",
     icon: "Stethoscope",
     image: "/images/services/checkup.jpg",
-    color: "blue",
   },
   {
     id: "cleaning",
@@ -49,25 +48,6 @@ export const services = [
       "Professional cleaning removes plaque and tartar while helping prevent gum disease and maintaining healthy teeth.",
     icon: "Sparkles",
     image: "/images/services/cleaning.jpg",
-    color: "cyan",
-  },
-  {
-    id: "extraction",
-    title: "Tooth Extraction",
-    description:
-      "Safe and comfortable tooth removal when necessary using professional techniques.",
-    icon: "Shield",
-    image: "/images/services/extraction.jpg",
-    color: "indigo",
-  },
-  {
-    id: "filling",
-    title: "Tooth Filling",
-    description:
-      "Restore damaged teeth caused by cavities while preserving natural tooth structure.",
-    icon: "Zap",
-    image: "/images/services/filling.jpg",
-    color: "blue",
   },
   {
     id: "whitening",
@@ -76,7 +56,6 @@ export const services = [
       "Professional whitening treatments designed to improve the brightness of your smile.",
     icon: "Sun",
     image: "/images/services/whitening.jpg",
-    color: "yellow",
   },
   {
     id: "braces",
@@ -85,7 +64,6 @@ export const services = [
       "Correct misaligned teeth and improve bite alignment for healthier, more confident smiles.",
     icon: "Brackets",
     image: "/images/services/braces.jpg",
-    color: "purple",
   },
   {
     id: "aligners",
@@ -94,7 +72,6 @@ export const services = [
       "Comfortable and nearly invisible orthodontic treatment for properly aligned teeth.",
     icon: "Eye",
     image: "/images/services/aligners.jpg",
-    color: "teal",
   },
   {
     id: "cosmetic",
@@ -102,8 +79,23 @@ export const services = [
     description:
       "Enhance the appearance of your smile with modern cosmetic dental procedures.",
     icon: "Star",
-    image: "/images/services/cosmetic.jpg",
-    color: "rose",
+    image: "/images/doctor/dr-milky-treating.jpg",
+  },
+  {
+    id: "extraction",
+    title: "Tooth Extraction",
+    description:
+      "Safe and comfortable tooth removal when necessary using professional techniques.",
+    icon: "Shield",
+    image: "/images/clinic/treatment-room-equipment.jpg",
+  },
+  {
+    id: "filling",
+    title: "Tooth Filling",
+    description:
+      "Restore damaged teeth caused by cavities while preserving natural tooth structure.",
+    icon: "Zap",
+    image: "/images/clinic/treatment-room-blue.jpg",
   },
   {
     id: "preventive",
@@ -112,7 +104,6 @@ export const services = [
       "Regular examinations and preventive treatments that help maintain excellent oral health.",
     icon: "Heart",
     image: "/images/services/preventive.jpg",
-    color: "green",
   },
   {
     id: "consultation",
@@ -120,8 +111,7 @@ export const services = [
     description:
       "Personalized consultation to understand your dental needs and recommend the most suitable treatment.",
     icon: "MessageCircle",
-    image: "/images/services/consultation.jpg",
-    color: "blue",
+    image: "/images/clinic/consultation-office.jpg",
   },
 ];
 
