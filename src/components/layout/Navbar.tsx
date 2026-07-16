@@ -33,7 +33,7 @@ function ClinicLogo({ scrolled }: { scrolled: boolean }) {
           aria-hidden="true"
         >
           {/* Outer circle background */}
-          <circle cx="22" cy="22" r="21" fill={scrolled ? "#EFF8FF" : "rgba(255,255,255,0.15)"} />
+          <circle cx="22" cy="22" r="21" fill={scrolled ? "#EFF8FF" : "#EFF8FF"} />
           {/* Gold tooth silhouette */}
           <path
             d="M22 8C16.8 8 11 12.5 11 18.5C11 22 12.2 24.8 14 27.2C15.8 29.6 16.4 32.4 16.4 35.5C16.4 37.5 17.5 39 19 39C20.5 39 21.1 37 21.6 35C22 33.2 22 33.2 22 33.2C22 33.2 22 33.2 22.4 35C22.9 37 23.5 39 25 39C26.5 39 27.6 37.5 27.6 35.5C27.6 32.4 28.2 29.6 30 27.2C31.8 24.8 33 22 33 18.5C33 12.5 27.2 8 22 8Z"
@@ -56,14 +56,14 @@ function ClinicLogo({ scrolled }: { scrolled: boolean }) {
       <div className="hidden sm:block leading-tight">
         <span
           className={`block font-extrabold text-[15px] tracking-tight transition-colors duration-300 ${
-            scrolled ? "text-[#0F172A]" : "text-white"
+            scrolled ? "text-[#0F172A]" : "text-[#0F172A]"
           }`}
         >
           Dr. Milky Derara
         </span>
         <span
           className={`block text-[11px] font-semibold tracking-widest uppercase transition-colors duration-300 ${
-            scrolled ? "text-[#1DA1F2]" : "text-[#D4AF37]"
+            scrolled ? "text-[#1DA1F2]" : "text-[#1DA1F2]"
           }`}
         >
           Specialty Dental Clinic
@@ -106,10 +106,10 @@ export function Navbar() {
     }
   };
 
-  const navTextClass = isScrolled ? "text-[#475569]" : "text-white/90";
+  const navTextClass = isScrolled ? "text-[#475569]" : "text-[#0F172A]/80";
   const navActiveClass = isScrolled
     ? "text-[#1DA1F2] bg-[#e8f4fd]"
-    : "text-white bg-white/20";
+    : "text-[#1DA1F2] bg-[#1DA1F2]/10";
 
   return (
     <>
@@ -135,7 +135,7 @@ export function Navbar() {
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                    activeSection === link.href ? navActiveClass : `${navTextClass} hover:text-[#1DA1F2] hover:bg-white/10`
+                    activeSection === link.href ? navActiveClass : `${navTextClass} hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/5`
                   }`}
                   aria-current={activeSection === link.href ? "page" : undefined}
                 >
@@ -148,9 +148,7 @@ export function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href={`tel:${siteConfig.phone}`}
-                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
-                  isScrolled ? "text-[#475569] hover:text-[#1DA1F2]" : "text-white/80 hover:text-white"
-                }`}
+                className="flex items-center gap-1.5 text-sm font-medium transition-colors text-[#475569] hover:text-[#1DA1F2]"
                 aria-label={`Call ${siteConfig.phoneDisplay}`}
               >
                 <Phone className="w-4 h-4" aria-hidden="true" />
@@ -158,11 +156,7 @@ export function Navbar() {
               </a>
               <button
                 onClick={() => handleNavClick("#contact")}
-                className={`flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 cursor-pointer ${
-                  isScrolled
-                    ? "bg-[#1DA1F2] text-white hover:bg-[#0e86d0] shadow-md hover:shadow-[#1DA1F2]/30"
-                    : "bg-white text-[#1DA1F2] hover:bg-white/90 shadow-lg"
-                }`}
+                className="flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 cursor-pointer bg-[#1DA1F2] text-white hover:bg-[#0e86d0] shadow-md hover:shadow-[#1DA1F2]/30"
                 aria-label="Book an appointment"
               >
                 <Calendar className="w-4 h-4" aria-hidden="true" />
@@ -173,9 +167,7 @@ export function Navbar() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden p-2.5 rounded-xl transition-colors ${
-                isScrolled ? "text-[#0F172A] hover:bg-gray-100" : "text-white hover:bg-white/10"
-              }`}
+              className="lg:hidden p-2.5 rounded-xl transition-colors text-[#0F172A] hover:bg-gray-100"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
