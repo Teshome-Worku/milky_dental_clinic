@@ -24,12 +24,12 @@ function ClinicLogo({ scrolled }: { scrolled: boolean }) {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       {/* Logo mark */}
-      <div className="relative flex-shrink-0 w-11 h-11">
+      <div className="relative flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11">
         <svg
           viewBox="0 0 44 44"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-11 h-11"
+          className="w-9 h-9 sm:w-11 sm:h-11"
           aria-hidden="true"
         >
           {/* Outer circle background */}
@@ -52,19 +52,15 @@ function ClinicLogo({ scrolled }: { scrolled: boolean }) {
         </svg>
       </div>
 
-      {/* Text */}
-      <div className="hidden sm:block leading-tight">
+      {/* Text — always visible, compact on mobile */}
+      <div className="leading-tight">
         <span
-          className={`block font-extrabold text-[15px] tracking-tight transition-colors duration-300 ${
-            scrolled ? "text-[#0F172A]" : "text-[#0F172A]"
-          }`}
+          className="block font-extrabold text-[13px] sm:text-[15px] tracking-tight text-[#0F172A] transition-colors duration-300"
         >
           Dr. Milky Derara
         </span>
         <span
-          className={`block text-[11px] font-semibold tracking-widest uppercase transition-colors duration-300 ${
-            scrolled ? "text-[#1DA1F2]" : "text-[#1DA1F2]"
-          }`}
+          className="block text-[9px] sm:text-[11px] font-semibold tracking-widest uppercase text-[#1DA1F2] transition-colors duration-300"
         >
           Specialty Dental Clinic
         </span>
