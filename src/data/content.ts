@@ -39,7 +39,7 @@ export const services = [
     description:
       "Routine examinations that help detect dental problems early and maintain long-term oral health.",
     icon: "Stethoscope",
-    image: "/images/services/checkup.jpg",
+    image: "https://images.unsplash.com/photo-1606265863819-222e574c8614?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "cleaning",
@@ -47,7 +47,7 @@ export const services = [
     description:
       "Professional cleaning removes plaque and tartar while helping prevent gum disease and maintaining healthy teeth.",
     icon: "Sparkles",
-    image: "/images/services/cleaning.jpg",
+    image: "https://images.unsplash.com/photo-1598256989814-9b2f693e5069?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "whitening",
@@ -55,7 +55,7 @@ export const services = [
     description:
       "Professional whitening treatments designed to improve the brightness of your smile.",
     icon: "Sun",
-    image: "/images/services/whitening.jpg",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "braces",
@@ -63,7 +63,7 @@ export const services = [
     description:
       "Correct misaligned teeth and improve bite alignment for healthier, more confident smiles.",
     icon: "Brackets",
-    image: "/images/services/braces.jpg",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "aligners",
@@ -71,7 +71,7 @@ export const services = [
     description:
       "Comfortable and nearly invisible orthodontic treatment for properly aligned teeth.",
     icon: "Eye",
-    image: "/images/services/aligners.jpg",
+    image: "https://images.unsplash.com/photo-1584483737276-f8b1cba29a00?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "cosmetic",
@@ -79,7 +79,7 @@ export const services = [
     description:
       "Enhance the appearance of your smile with modern cosmetic dental procedures.",
     icon: "Star",
-    image: "/images/doctor/dr-milky-treating.jpg",
+    image: "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "extraction",
@@ -87,7 +87,7 @@ export const services = [
     description:
       "Safe and comfortable tooth removal when necessary using professional techniques.",
     icon: "Shield",
-    image: "/images/clinic/treatment-room-equipment.jpg",
+    image: "https://images.unsplash.com/photo-1581594549595-35f6edc7b762?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "filling",
@@ -95,7 +95,7 @@ export const services = [
     description:
       "Restore damaged teeth caused by cavities while preserving natural tooth structure.",
     icon: "Zap",
-    image: "/images/clinic/treatment-room-blue.jpg",
+    image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "preventive",
@@ -103,7 +103,7 @@ export const services = [
     description:
       "Regular examinations and preventive treatments that help maintain excellent oral health.",
     icon: "Heart",
-    image: "/images/services/preventive.jpg",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "consultation",
@@ -111,7 +111,7 @@ export const services = [
     description:
       "Personalized consultation to understand your dental needs and recommend the most suitable treatment.",
     icon: "MessageCircle",
-    image: "/images/clinic/consultation-office.jpg",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
