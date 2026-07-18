@@ -87,13 +87,11 @@ export function HeroSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* ── LIGHT overlay — just enough to soften, not wash out ── */}
-        <div className="absolute inset-0 bg-white/[0.18]" />
-        {/* Subtle cool tint for clinical feel */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f0f7ff]/30 via-transparent to-white/20" />
+        {/* ── Subtle light overlay for text readability ── */}
+        <div className="absolute inset-0 bg-white/30" />
       </div>
 
-      {/* ── Centered Content with localized text backdrop ── */}
+      {/* ── Centered Content ── */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-5">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -115,55 +113,52 @@ export function HeroSection() {
             Specialty Dental Clinic · Addis Ababa
           </motion.span>
 
-          {/* ── Text backdrop panel — frosted glass only behind text ── */}
-          <div className="bg-white/[0.55] backdrop-blur-sm rounded-3xl px-8 py-10 sm:px-12 sm:py-12 shadow-sm">
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight mb-5"
-            >
-              Your Smile.
-              <br />
-              <span className="text-[#1DA1F2]">Our Priority.</span>
-            </motion.h1>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-extrabold text-[#0F172A] leading-[1.08] tracking-tight mb-5 drop-shadow-sm"
+          >
+            Your Smile.
+            <br />
+            <span className="text-[#1DA1F2]">Our Priority.</span>
+          </motion.h1>
 
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-              className="text-[#334155] text-base sm:text-lg lg:text-xl max-w-lg mx-auto mb-10 leading-relaxed"
-            >
-              Modern, compassionate dental care for every member of your family.
-            </motion.p>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className="text-[#1E293B] font-medium text-base sm:text-lg lg:text-xl max-w-lg mx-auto mb-10 leading-relaxed drop-shadow-sm"
+          >
+            Modern, compassionate dental care for every member of your family.
+          </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-5"
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+          >
+            <button
+              onClick={() => scrollTo("#contact")}
+              className="flex items-center gap-2.5 bg-[#1DA1F2] hover:bg-[#0e86d0] text-white font-bold px-9 py-4 rounded-2xl text-base transition-all duration-250 hover:shadow-xl hover:shadow-[#1DA1F2]/25 hover:-translate-y-0.5 w-full sm:w-auto justify-center cursor-pointer"
+              aria-label="Book a dental appointment"
             >
-              <button
-                onClick={() => scrollTo("#contact")}
-                className="flex items-center gap-2.5 bg-[#1DA1F2] hover:bg-[#0e86d0] text-white font-bold px-9 py-4 rounded-2xl text-base transition-all duration-250 hover:shadow-xl hover:shadow-[#1DA1F2]/25 hover:-translate-y-0.5 w-full sm:w-auto justify-center cursor-pointer"
-                aria-label="Book a dental appointment"
-              >
-                <Calendar className="w-5 h-5" aria-hidden="true" />
-                Book Appointment
-              </button>
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="flex items-center gap-2.5 bg-white/90 hover:bg-white border-2 border-[#1DA1F2]/20 hover:border-[#1DA1F2]/40 text-[#0F172A] font-bold px-9 py-4 rounded-2xl text-base transition-all duration-250 hover:shadow-lg w-full sm:w-auto justify-center"
-                aria-label={`Call us at ${siteConfig.phoneDisplay}`}
-              >
-                <Phone className="w-5 h-5 text-[#1DA1F2]" aria-hidden="true" />
-                Call Now
-              </a>
-            </motion.div>
-          </div>
+              <Calendar className="w-5 h-5" aria-hidden="true" />
+              Book Appointment
+            </button>
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="flex items-center gap-2.5 bg-white/90 hover:bg-white border-2 border-[#1DA1F2]/20 hover:border-[#1DA1F2]/40 text-[#0F172A] font-bold px-9 py-4 rounded-2xl text-base transition-all duration-250 hover:shadow-lg w-full sm:w-auto justify-center"
+              aria-label={`Call us at ${siteConfig.phoneDisplay}`}
+            >
+              <Phone className="w-5 h-5 text-[#1DA1F2]" aria-hidden="true" />
+              Call Now
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
