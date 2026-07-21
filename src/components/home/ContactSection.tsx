@@ -126,8 +126,33 @@ export function ContactSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="space-y-5"
           >
+            {/* Mobile visit guide */}
+            <div className="lg:hidden rounded-[20px] border border-[#E2E8F0] bg-[#F8FAFC] p-5 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-white shadow-sm flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-[#1DA1F2]" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1DA1F2] mb-1">
+                    Visit guide
+                  </p>
+                  <h3 className="text-sm font-bold text-[#0F172A] mb-1">
+                    Finding the clinic on mobile
+                  </h3>
+                  <p className="text-xs leading-relaxed text-[#475569]">
+                    Use the map below for directions, then check the reception photo to recognize the entrance when you arrive.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Map */}
-            <div className="rounded-[20px] overflow-hidden shadow-sm aspect-[4/3] border border-[#E2E8F0]">
+            <div className="relative rounded-[20px] overflow-hidden shadow-sm aspect-[4/3] border border-[#E2E8F0]">
+              <div className="absolute top-4 left-4 z-10 rounded-full bg-white/90 backdrop-blur px-3 py-1.5 shadow-sm border border-white/80">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1DA1F2]">
+                  Interactive map
+                </p>
+              </div>
               <iframe
                 title="Dr. Milky Derara Specialty Dental Clinic location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.4786474697966!2d38.76440287476853!3d9.021456091039937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85c1a4c2b4b7%3A0x0!2zOcKwMDEnMTcuMiJOIDM4wrA0NSc0OS4yIkU!5e0!3m2!1sen!2set!4v1720421200000!5m2!1sen!2set"
@@ -141,6 +166,18 @@ export function ContactSection() {
               />
             </div>
 
+            <div className="lg:hidden rounded-[20px] border border-[#E2E8F0] bg-white p-4 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1DA1F2] mb-1">
+                Address
+              </p>
+              <p className="text-sm font-semibold text-[#0F172A]">
+                {siteConfig.address.line1}
+              </p>
+              <p className="text-xs text-[#475569]">
+                {siteConfig.address.line2}, {siteConfig.address.city}, {siteConfig.address.country}
+              </p>
+            </div>
+
             {/* Reception interior */}
             <div className="relative rounded-[20px] overflow-hidden aspect-[16/9] shadow-sm">
               <Image
@@ -151,9 +188,16 @@ export function ContactSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-4 left-4">
+              <div className="absolute top-4 left-4 rounded-full bg-black/40 backdrop-blur px-3 py-1.5 border border-white/10 lg:hidden">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+                  Reception view
+                </p>
+              </div>
+              <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-white font-bold text-sm">Dr. Milky Dental Clinic</p>
-                <p className="text-white/70 text-xs">Wolo Sefer · Addis Ababa</p>
+                <p className="text-white/70 text-xs max-w-xs">
+                  Warm reception area where patients are welcomed before consultation.
+                </p>
               </div>
             </div>
           </motion.div>
