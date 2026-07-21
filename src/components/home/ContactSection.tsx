@@ -41,7 +41,7 @@ export function ContactSection() {
             {/* Exterior image */}
             <div className="relative rounded-[20px] overflow-hidden aspect-[16/9] shadow-sm">
               <Image
-                src="/images/clinic/building-exterior.jpg"
+                src="/images/clinic/building-full-copy.jpg"
                 alt="Dr. Milky Derara Specialty Dental Clinic at Medco Building, Wolo Sefer, Addis Ababa"
                 fill
                 className="object-cover object-top"
