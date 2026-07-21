@@ -10,6 +10,8 @@ import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 import { ContactSection } from "@/components/home/ContactSection";
 
+export const dynamic = "force-static";
+
 export default function HomePage() {
   return (
     <>

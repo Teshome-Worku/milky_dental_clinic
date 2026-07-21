@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +21,6 @@ function ClinicLogo({ scrolled }: { scrolled: boolean }) {
       href="/"
       className="flex items-center gap-3 group"
       aria-label="Dr. Milky Dental Clinic – Home"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       {/* Logo mark */}
       <div className="relative flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11">
@@ -73,6 +72,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 60);
@@ -85,21 +85,38 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) mobileMenuRef.current?.focus();
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const sections = navLinks
+      .map(({ href }) => document.querySelector(href))
+      .filter((section): section is HTMLElement => section instanceof HTMLElement);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const current = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (current) setActiveSection(`#${current.target.id}`);
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: [0.01, 0.4] }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     setActiveSection(href);
-    if (href === "#home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-    const el = document.querySelector(href);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
   };
 
   const navTextClass = isScrolled ? "text-[#475569]" : "text-[#0F172A]/80";
@@ -126,15 +143,16 @@ export function Navbar() {
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.href}
+                  href={link.href}
                   onClick={() => handleNavClick(link.href)}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${activeSection === link.href ? navActiveClass : `${navTextClass} hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/5`
                     }`}
                   aria-current={activeSection === link.href ? "page" : undefined}
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
             </nav>
 
@@ -148,14 +166,15 @@ export function Navbar() {
                 <Phone className="w-4 h-4" aria-hidden="true" />
                 <span className="hidden xl:block">{siteConfig.phoneDisplay}</span>
               </a>
-              <button
+              <a
+                href="#contact"
                 onClick={() => handleNavClick("#contact")}
                 className="flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 cursor-pointer bg-[#1DA1F2] text-white hover:bg-[#0e86d0] shadow-md hover:shadow-[#1DA1F2]/30"
                 aria-label="Book an appointment"
               >
                 <Calendar className="w-4 h-4" aria-hidden="true" />
                 Appointment
-              </button>
+              </a>
             </div>
 
             {/* Mobile Toggle */}
@@ -185,11 +204,14 @@ export function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
+            ref={mobileMenuRef}
+            tabIndex={-1}
           >
             <div className="container-custom py-6 flex flex-col gap-1">
               {navLinks.map((link, i) => (
-                <motion.button
+                <motion.a
                   key={link.href}
+                  href={link.href}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
@@ -197,7 +219,7 @@ export function Navbar() {
                   className="w-full text-left px-4 py-3.5 rounded-xl text-base font-semibold text-[#0F172A] hover:bg-[#e8f4fd] hover:text-[#1DA1F2] transition-all cursor-pointer"
                 >
                   {link.label}
-                </motion.button>
+                </motion.a>
               ))}
               <div className="mt-5 pt-5 border-t border-gray-100 flex flex-col gap-3">
                 <a
@@ -208,14 +230,15 @@ export function Navbar() {
                   <Phone className="w-5 h-5 text-[#1DA1F2]" aria-hidden="true" />
                   <span className="font-medium">{siteConfig.phoneDisplay}</span>
                 </a>
-                <button
+                <a
+                  href="#contact"
                   onClick={() => handleNavClick("#contact")}
                   className="btn-primary w-full justify-center"
                   aria-label="Book an appointment"
                 >
                   <Calendar className="w-4 h-4" aria-hidden="true" />
                   Book Appointment
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://drmilkydental.com";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -18,7 +20,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drmilkydental.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Dr. Milky Derara Specialty Dental Clinic | Addis Ababa",
     template: "%s | Dr. Milky Dental Clinic",
@@ -41,26 +43,19 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://drmilkydental.com",
+    url: siteUrl,
     title: "Dr. Milky Derara Specialty Dental Clinic",
     description:
       "Modern, professional, and compassionate dental care in Addis Ababa. Book your appointment today.",
     siteName: "Dr. Milky Derara Specialty Dental Clinic",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dr. Milky Derara Specialty Dental Clinic",
-      },
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Dr. Milky Derara Specialty Dental Clinic" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dr. Milky Derara Specialty Dental Clinic",
     description:
       "Modern, professional, and compassionate dental care in Addis Ababa.",
-    images: ["/images/og-image.jpg"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -74,7 +69,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://drmilkydental.com",
+    canonical: siteUrl,
   },
 };
 
@@ -82,8 +77,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Dentist",
   name: "Dr. Milky Derara Specialty Dental Clinic",
-  image: "https://drmilkydental.com/images/doctor/dr-milky-professional.jpg",
-  url: "https://drmilkydental.com",
+  image: `${siteUrl}/images/doctor/dr-milky-professional.jpg`,
+  url: siteUrl,
   telephone: "+251938329999",
   address: {
     "@type": "PostalAddress",
@@ -91,7 +86,6 @@ const jsonLd = {
     addressLocality: "Addis Ababa",
     addressCountry: "ET",
   },
-  openingHours: ["Mo-Sa 02:30-06:30", "Mo-Sa 19:30-24:30"],
   priceRange: "$$",
   aggregateRating: {
     "@type": "AggregateRating",
@@ -124,8 +118,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${plusJakartaSans.variable} antialiased`}>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
