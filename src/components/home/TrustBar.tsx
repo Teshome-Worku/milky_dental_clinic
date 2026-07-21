@@ -14,9 +14,25 @@ const trustItems = [
 export function TrustBar() {
   return (
     <section
-      className="bg-[#1DA1F2] py-5"
+      className="relative overflow-hidden bg-[#1DA1F2] py-5"
       aria-label="Trust indicators"
     >
+      <motion.div
+        className="pointer-events-none absolute inset-0 opacity-20"
+        aria-hidden="true"
+      >
+        <motion.div
+          className="absolute -left-24 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-white/30 blur-3xl"
+          animate={{ x: [0, 140, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute right-0 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-[#D4AF37]/35 blur-2xl"
+          animate={{ x: [0, -120, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </motion.div>
+
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0 }}
