@@ -48,10 +48,10 @@ export function Footer() {
     <footer className="bg-[#0F172A] text-white" role="contentinfo">
       {/* Main Footer */}
       <div className="container-custom py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-2 md:text-left lg:grid-cols-4 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-5">
+            <div className="flex items-center justify-center gap-2.5 mb-5 md:justify-start">
               <div className="w-10 h-10 flex-shrink-0 bg-[#1DA1F2]/20 rounded-xl flex items-center justify-center">
                 <svg
                   viewBox="0 0 40 40"
@@ -81,7 +81,10 @@ export function Footer() {
               brighter, and more confident smile.
             </p>
             {/* Social */}
-            <div className="flex gap-3" aria-label="Social media links">
+            <div
+              className="flex justify-center gap-3 md:justify-start"
+              aria-label="Social media links"
+            >
               <a
                 href={siteConfig.socialMedia.facebook}
                 target="_blank"
@@ -159,7 +162,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-5">Visit Us</h3>
             <ul className="space-y-4">
-              <li className="flex gap-3">
+              <li className="flex justify-center gap-3 md:justify-start">
                 <MapPin
                   className="w-4 h-4 text-[#1DA1F2] flex-shrink-0 mt-0.5"
                   aria-hidden="true"
@@ -172,7 +175,7 @@ export function Footer() {
                   {siteConfig.address.city}, {siteConfig.address.country}
                 </address>
               </li>
-              <li className="flex gap-3 items-center">
+              <li className="flex items-center justify-center gap-3 md:justify-start">
                 <Phone
                   className="w-4 h-4 text-[#1DA1F2] flex-shrink-0"
                   aria-hidden="true"
@@ -184,7 +187,7 @@ export function Footer() {
                   {siteConfig.phoneDisplay}
                 </a>
               </li>
-              <li className="flex gap-3">
+              <li className="flex justify-center gap-3 md:justify-start">
                 <Clock
                   className="w-4 h-4 text-[#1DA1F2] flex-shrink-0 mt-0.5"
                   aria-hidden="true"
@@ -219,7 +222,7 @@ export function Footer() {
               © {new Date().getFullYear()} Dr. Milky Derara Specialty Dental
               Clinic. All Rights Reserved.
             </p>
-            <p className="text-[#64748b] text-xs flex items-center gap-1">
+            <p className="flex items-center justify-center gap-1 text-xs text-[#64748b] sm:justify-start">
               Made with{" "}
               <Heart
                 className="w-3 h-3 text-red-400 fill-red-400"
