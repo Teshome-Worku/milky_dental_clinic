@@ -8,14 +8,14 @@ import { siteConfig } from "@/data/content";
 
 const slides = [
   {
-    src: "/images/clinic/reception-flowers.jpg",
-    alt: "Elegant reception area at Dr. Milky Dental Clinic with fresh flowers",
-    position: "center 40%",
+    src: "/images/doctor/milky_guest1.jpg",
+    alt: "Dr. Milky Derara with a guest at the clinic reception",
+    position: "center 30%",
   },
   {
-    src: "/images/clinic/treatment-room-equipment.jpg",
-    alt: "Modern dental treatment room with state-of-the-art equipment",
-    position: "center 45%",
+    src: "/images/doctor/milky_celebrity.jpg",
+    alt: "Portrait of Dr. Milky Derara in professional clinical attire",
+    position: "center 34%",
   },
   {
     src: "/images/doctor/dr-milky-treating.jpg",
@@ -23,9 +23,9 @@ const slides = [
     position: "center 30%",
   },
   {
-    src: "/images/clinic/reception-waiting.jpg",
-    alt: "Comfortable and clean waiting area at the clinic",
-    position: "center 50%",
+    src: "/images/clinic/reception-logo.jpg",
+    alt: "Branded reception area at Dr. Milky Dental Clinic",
+    position: "center 48%",
   },
 ];
 
@@ -105,8 +105,9 @@ export function HeroSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* ── Subtle light overlay for text readability ── */}
-        <div className="absolute inset-0 bg-white/30" />
+        {/* ── Subtle cinematic overlay for text readability ── */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.16)_42%,rgba(15,23,42,0.12)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/8 via-transparent to-white/6" />
       </div>
 
       {/* ── Centered Content ── */}
@@ -194,8 +195,8 @@ export function HeroSection() {
             aria-selected={current === i}
             aria-label={`Slide ${i + 1}`}
             className={`rounded-full transition-all duration-500 ${current === i
-                ? "w-8 h-2 bg-[#1DA1F2] shadow-sm"
-                : "w-2 h-2 bg-[#0F172A]/25 hover:bg-[#1DA1F2]/50"
+              ? "w-8 h-2 bg-[#1DA1F2] shadow-sm"
+              : "w-2 h-2 bg-[#0F172A]/25 hover:bg-[#1DA1F2]/50"
               }`}
           />
         ))}
