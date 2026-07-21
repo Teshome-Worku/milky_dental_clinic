@@ -8,24 +8,28 @@ import { siteConfig } from "@/data/content";
 
 const slides = [
   {
-    src: "/images/doctor/milky_guest1.jpg",
-    alt: "Dr. Milky Derara with a guest at the clinic reception",
-    position: "center 30%",
+    src: "/images/doctor/milky_celebrity.jpg",
+    alt: "Dr. Milky Derara — specialty dentist in Addis Ababa",
+    position: "72% center",
+    contentAlign: "left" as const,
   },
   {
-    src: "/images/doctor/milky_celebrity.jpg",
-    alt: "Portrait of Dr. Milky Derara in professional clinical attire",
-    position: "center 34%",
+    src: "/images/clinic/reception-waiting.jpg",
+    alt: "Modern waiting lounge at Dr. Milky Dental Clinic",
+    position: "center center",
+    contentAlign: "center" as const,
   },
   {
     src: "/images/doctor/dr-milky-treating.jpg",
-    alt: "Dr. Milky Derara providing professional dental care to a patient",
+    alt: "Dr. Milky Derara providing professional dental care",
     position: "center 30%",
+    contentAlign: "center" as const,
   },
   {
-    src: "/images/clinic/reception-logo.jpg",
-    alt: "Branded reception area at Dr. Milky Dental Clinic",
-    position: "center 48%",
+    src: "/images/doctor/milky_with_gown.jpg",
+    alt: "Dr. Milky Derara in professional clinical attire",
+    position: "center 12%",
+    contentAlign: "left" as const,
   },
 ];
 
@@ -54,6 +58,8 @@ export function HeroSection() {
       });
     }
   };
+
+  const isLeftAligned = slides[current].contentAlign === "left";
 
   return (
     <section
@@ -105,18 +111,24 @@ export function HeroSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* ── Subtle cinematic overlay for text readability ── */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.16)_42%,rgba(15,23,42,0.12)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/8 via-transparent to-white/6" />
+        {/* ── Overlay for text readability ── */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/55 via-white/25 to-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/6 via-transparent to-white/8" />
       </div>
 
-      {/* ── Centered Content ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-5">
+      {/* ── Hero Content ── */}
+      <div
+        className={`relative z-10 flex flex-col justify-center h-full px-5 sm:px-8 lg:px-12 xl:px-16 ${
+          isLeftAligned
+            ? "items-center text-center lg:items-start lg:text-left"
+            : "items-center text-center"
+        }`}
+      >
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="max-w-2xl mx-auto"
+          className={`max-w-2xl ${isLeftAligned ? "lg:max-w-xl xl:max-w-2xl lg:mr-auto" : "mx-auto"}`}
         >
           {/* Badge */}
           <motion.span
@@ -149,7 +161,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
-            className="text-[#1E293B] font-medium text-base sm:text-lg lg:text-xl max-w-lg mx-auto mb-10 leading-relaxed drop-shadow-sm"
+            className={`text-[#1E293B] font-medium text-base sm:text-lg lg:text-xl max-w-lg mb-10 leading-relaxed drop-shadow-sm ${
+              isLeftAligned ? "mx-auto lg:mx-0" : "mx-auto"
+            }`}
           >
             Modern, compassionate dental care for every member of your family.
           </motion.p>
@@ -159,7 +173,11 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+            className={`flex flex-col sm:flex-row gap-5 ${
+              isLeftAligned
+                ? "items-center justify-center lg:items-start lg:justify-start"
+                : "items-center justify-center"
+            }`}
           >
             <button
               onClick={() => scrollTo("#contact")}
