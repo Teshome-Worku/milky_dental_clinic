@@ -33,9 +33,8 @@ function FAQItem({
       <button
         id={id}
         onClick={onToggle}
-        className={`w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 ${
-          isOpen ? "bg-[#EFF8FF]" : "hover:bg-[#F8FAFC]"
-        }`}
+        className={`w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 ${isOpen ? "bg-[#EFF8FF]" : "hover:bg-[#F8FAFC]"
+          }`}
         aria-expanded={isOpen}
         aria-controls={answerId}
       >
@@ -45,9 +44,8 @@ function FAQItem({
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.22 }}
-          className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
-            isOpen ? "bg-[#1DA1F2] text-white" : "bg-[#F1F5F9] text-[#94a3b8]"
-          }`}
+          className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-[#1DA1F2] text-white" : "bg-[#F1F5F9] text-[#94a3b8]"
+            }`}
         >
           <ChevronDown className="w-4 h-4" aria-hidden="true" />
         </motion.div>

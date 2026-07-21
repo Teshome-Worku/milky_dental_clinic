@@ -113,11 +113,10 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          isScrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${isScrolled
+          ? "bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm"
+          : "bg-transparent"
+          }`}
         role="banner"
       >
         <div className="container-custom">
@@ -130,9 +129,8 @@ export function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                    activeSection === link.href ? navActiveClass : `${navTextClass} hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/5`
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${activeSection === link.href ? navActiveClass : `${navTextClass} hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/5`
+                    }`}
                   aria-current={activeSection === link.href ? "page" : undefined}
                 >
                   {link.label}
@@ -183,7 +181,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-40 pt-[72px] bg-white/95 backdrop-blur-xl"
+            className="fixed inset-0 z-40 pt-[72px] bg-white/95 backdrop-blur-xl "
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
