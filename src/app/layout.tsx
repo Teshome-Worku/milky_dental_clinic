@@ -93,6 +93,19 @@ const jsonLd = {
     addressLocality: "Addis Ababa",
     addressCountry: "ET",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 8.995, // Approximate for Wolo Sefer, Addis Ababa
+    longitude: 38.775,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "08:30",
+      closes: "17:30",
+    }
+  ],
   priceRange: "$$",
   aggregateRating: {
     "@type": "AggregateRating",
