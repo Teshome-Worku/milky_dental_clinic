@@ -286,7 +286,7 @@ export const galleryImages = [
     title: "Reception Flowers",
     image: "/images/clinic/reception-flowers.jpg",
     alt: "Dr. Milky Dental Clinic reception with floral decoration",
-    category: "Reception",
+    category: "Treatment Rooms",
   },
   {
     id: 2,
@@ -314,7 +314,7 @@ export const galleryImages = [
     title: "Dental Treatment Room",
     image: "/images/clinic/treatment-room-blue.jpg",
     alt: "Professional dental chair and equipment",
-    category: "Treatment Rooms",
+    category: "Exterior",
   },
   {
     id: 6,
