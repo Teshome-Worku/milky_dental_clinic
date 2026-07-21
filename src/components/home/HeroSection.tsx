@@ -26,9 +26,9 @@ const slides = [
     contentAlign: "center" as const,
   },
   {
-    src: "/images/doctor/milky_with_gown.jpg",
-    alt: "Dr. Milky Derara in professional clinical attire",
-    position: "center 12%",
+    src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1920&q=80",
+    alt: "Happy patient receiving premium dental care",
+    position: "center 30%",
     contentAlign: "left" as const,
   },
 ];
