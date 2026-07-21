@@ -88,6 +88,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Follow us on Facebook"
+                title="Follow us on Facebook"
               >
                 <FacebookIcon className="w-9 h-9" />
               </a>
@@ -97,6 +98,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Contact us on WhatsApp"
+                title="Contact us on WhatsApp"
               >
                 <WhatsAppIcon className="w-9 h-9" />
               </a>
@@ -106,6 +108,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Follow us on TikTok"
+                title="Follow us on TikTok"
               >
                 <TikTokIcon className="w-9 h-9" />
               </a>
@@ -115,6 +118,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Contact us on Telegram"
+                title="Contact us on Telegram"
               >
                 <TelegramIcon className="w-9 h-9" />
               </a>
