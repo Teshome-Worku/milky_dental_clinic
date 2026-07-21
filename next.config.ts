@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    reactCompiler: true,
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [320, 375, 425, 640, 768, 1024, 1280, 1536],
