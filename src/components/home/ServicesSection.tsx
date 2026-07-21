@@ -56,16 +56,16 @@ export function ServicesSection() {
               <motion.article
                 key={service.id}
                 variants={card}
-                className="group bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                className="group flex h-full flex-col overflow-hidden rounded-[18px] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 aria-label={service.title}
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={service.image}
-                    alt={`${service.title} at Dr. Milky Dental Clinic`}
+                    alt={service.imageAlt}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />

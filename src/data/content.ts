@@ -39,8 +39,9 @@ export const services = [
     description:
       "Routine examinations that help detect dental problems early and maintain long-term oral health.",
     icon: "Stethoscope",
-    // Dentist examining patient's teeth with dental mirror
-    image: "https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dentist examining a patient's teeth in a clinical setting
+    image: "https://images.pexels.com/photos/6528867/pexels-photo-6528867.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dentist examining a patient's teeth during a routine dental checkup",
   },
   {
     id: "cleaning",
@@ -48,8 +49,9 @@ export const services = [
     description:
       "Professional cleaning removes plaque and tartar while helping prevent gum disease and maintaining healthy teeth.",
     icon: "Sparkles",
-    // Dental hygienist performing professional teeth cleaning/scaling
-    image: "https://images.pexels.com/photos/4269696/pexels-photo-4269696.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dental hygienist performing professional cleaning with clinical instruments
+    image: "https://images.pexels.com/photos/6812543/pexels-photo-6812543.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dental professional cleaning a patient's teeth with dental instruments",
   },
   {
     id: "whitening",
@@ -57,8 +59,9 @@ export const services = [
     description:
       "Professional whitening treatments designed to improve the brightness of your smile.",
     icon: "Sun",
-    // Bright white smile close-up showing whitened teeth
-    image: "https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dentist comparing tooth shades for a whitening treatment
+    image: "https://images.pexels.com/photos/7800662/pexels-photo-7800662.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dentist comparing tooth shades for a professional teeth whitening treatment",
   },
   {
     id: "braces",
@@ -66,8 +69,9 @@ export const services = [
     description:
       "Correct misaligned teeth and improve bite alignment for healthier, more confident smiles.",
     icon: "Brackets",
-    // Metal dental braces and brackets on teeth
-    image: "https://images.pexels.com/photos/3845806/pexels-photo-3845806.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Orthodontist examining metal braces and brackets
+    image: "https://images.pexels.com/photos/19147369/pexels-photo-19147369.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Orthodontist examining metal braces with dental tools",
   },
   {
     id: "aligners",
@@ -75,8 +79,9 @@ export const services = [
     description:
       "Comfortable and nearly invisible orthodontic treatment for properly aligned teeth.",
     icon: "Eye",
-    // Transparent clear dental aligner being held/worn
-    image: "https://images.pexels.com/photos/6812477/pexels-photo-6812477.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Transparent orthodontic aligner shown in a dental clinic
+    image: "https://images.pexels.com/photos/28470229/pexels-photo-28470229.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Patient holding a transparent clear orthodontic aligner",
   },
   {
     id: "cosmetic",
@@ -84,8 +89,9 @@ export const services = [
     description:
       "Enhance the appearance of your smile with modern cosmetic dental procedures.",
     icon: "Star",
-    // Beautiful smile makeover / cosmetic dental result
-    image: "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dentist applying a veneer during cosmetic smile treatment
+    image: "https://images.pexels.com/photos/6627571/pexels-photo-6627571.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dentist applying a veneer during a cosmetic dentistry procedure",
   },
   {
     id: "extraction",
@@ -93,8 +99,9 @@ export const services = [
     description:
       "Safe and comfortable tooth removal when necessary using professional techniques.",
     icon: "Shield",
-    // Dentist performing tooth extraction with dental forceps
-    image: "https://images.pexels.com/photos/3845741/pexels-photo-3845741.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dentist performing a tooth extraction with forceps
+    image: "https://images.pexels.com/photos/6627569/pexels-photo-6627569.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dentist performing a tooth extraction with dental forceps",
   },
   {
     id: "filling",
@@ -102,8 +109,9 @@ export const services = [
     description:
       "Restore damaged teeth caused by cavities while preserving natural tooth structure.",
     icon: "Zap",
-    // Dentist applying composite filling to restore a tooth
-    image: "https://images.pexels.com/photos/3845769/pexels-photo-3845769.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dental curing light used to restore a tooth filling
+    image: "https://images.pexels.com/photos/6812544/pexels-photo-6812544.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dental curing light used during a composite tooth filling procedure",
   },
   {
     id: "preventive",
@@ -111,8 +119,9 @@ export const services = [
     description:
       "Regular examinations and preventive treatments that help maintain excellent oral health.",
     icon: "Heart",
-    // Dentist educating patient during preventive examination
-    image: "https://images.pexels.com/photos/5355954/pexels-photo-5355954.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dentist educating a patient about preventive oral care
+    image: "https://images.pexels.com/photos/4269360/pexels-photo-4269360.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dentist educating a patient about preventive dental care using a tooth model",
   },
   {
     id: "consultation",
@@ -120,8 +129,9 @@ export const services = [
     description:
       "Personalized consultation to understand your dental needs and recommend the most suitable treatment.",
     icon: "MessageCircle",
-    // Dentist discussing treatment plan with patient
-    image: "https://images.pexels.com/photos/7584536/pexels-photo-7584536.jpeg?auto=compress&cs=tinysrgb&w=800",
+    // Dentist explaining dental X-rays and a treatment plan
+    image: "https://images.pexels.com/photos/6502030/pexels-photo-6502030.jpeg?auto=compress&cs=tinysrgb&w=900",
+    imageAlt: "Dentist discussing a dental X-ray and treatment plan with a patient",
   },
 ];
 
