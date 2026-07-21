@@ -3,7 +3,7 @@
 import { Phone, MapPin, Clock, Heart } from "lucide-react";
 import {
   FacebookIcon,
-  InstagramIcon,
+  TikTokIcon,
   WhatsAppIcon,
   TelegramIcon,
 } from "@/components/shared/BrandSocialIcons";
@@ -92,15 +92,6 @@ export function Footer() {
                 <FacebookIcon className="w-9 h-9" />
               </a>
               <a
-                href={siteConfig.socialMedia.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                aria-label="Follow us on Instagram"
-              >
-                <InstagramIcon className="w-9 h-9" />
-              </a>
-              <a
                 href={`https://wa.me/${siteConfig.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -108,6 +99,15 @@ export function Footer() {
                 aria-label="Contact us on WhatsApp"
               >
                 <WhatsAppIcon className="w-9 h-9" />
+              </a>
+              <a
+                href={siteConfig.socialMedia.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
+                aria-label="Follow us on TikTok"
+              >
+                <TikTokIcon className="w-9 h-9" />
               </a>
               <a
                 href={siteConfig.socialMedia.telegram}

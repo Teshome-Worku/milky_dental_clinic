@@ -63,6 +63,29 @@ export function InstagramIcon({ className }: IconProps) {
   );
 }
 
+export function TikTokIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="12" fill="#111111" />
+      <path
+        d="M13.2 5.2c.4 2.2 1.7 3.5 3.8 3.7v2.4c-1.4 0-2.6-.4-3.7-1.1v5.1c0 2.6-1.8 4.7-4.5 4.7S4.3 18 4.3 15.4s2.1-4.8 4.8-4.8c.4 0 .7 0 1 .1v2.7c-.3-.1-.6-.1-.9-.1-1.4 0-2.6 1.1-2.6 2.7 0 1.5 1.2 2.7 2.6 2.7 1.5 0 2.6-1.1 2.6-2.9V4h2.6v1.2Z"
+        fill="#25F4EE"
+      />
+      <path
+        d="M13.8 5.2c.4 2.2 1.7 3.5 3.8 3.7v2.1c-1.3 0-2.5-.3-3.6-1v5.1c0 2.6-1.9 4.7-4.5 4.7-1 0-1.9-.3-2.7-.8.9.9 2.2 1.5 3.7 1.5 2.6 0 4.5-2.1 4.5-4.7V6.2c1.1.7 2.3 1.1 3.7 1.1V5.2c-2.1-.2-3.4-1.5-3.8-3.7h-2.6Z"
+        fill="#FE2C55"
+        opacity="0.9"
+      />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({
   className,
   variant = "brand",
