@@ -19,9 +19,9 @@ export const siteConfig = {
     note: "Walk-ins welcome based on availability",
   },
   socialMedia: {
-    facebook: "https://www.facebook.com",
+    facebook: "https://web.facebook.com/milky.derara",
     instagram: "https://www.instagram.com",
-    tiktok: "https://www.tiktok.com",
+    tiktok: "https://www.tiktok.com/@dr.milkyderara",
     telegram: "https://t.me",
   },
   googleMapsUrl:
@@ -39,7 +39,8 @@ export const services = [
     description:
       "Routine examinations that help detect dental problems early and maintain long-term oral health.",
     icon: "Stethoscope",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
+    // Dentist examining patient's teeth with dental mirror
+    image: "https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "cleaning",
@@ -47,7 +48,8 @@ export const services = [
     description:
       "Professional cleaning removes plaque and tartar while helping prevent gum disease and maintaining healthy teeth.",
     icon: "Sparkles",
-    image: "https://images.unsplash.com/photo-1590664095641-7fa05f689813?auto=format&fit=crop&w=800&q=80",
+    // Dental hygienist performing professional teeth cleaning/scaling
+    image: "https://images.pexels.com/photos/4269696/pexels-photo-4269696.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "whitening",
@@ -55,7 +57,8 @@ export const services = [
     description:
       "Professional whitening treatments designed to improve the brightness of your smile.",
     icon: "Sun",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
+    // Bright white smile close-up showing whitened teeth
+    image: "https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "braces",
@@ -63,7 +66,8 @@ export const services = [
     description:
       "Correct misaligned teeth and improve bite alignment for healthier, more confident smiles.",
     icon: "Brackets",
-    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+    // Metal dental braces and brackets on teeth
+    image: "https://images.pexels.com/photos/3845806/pexels-photo-3845806.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "aligners",
@@ -71,7 +75,8 @@ export const services = [
     description:
       "Comfortable and nearly invisible orthodontic treatment for properly aligned teeth.",
     icon: "Eye",
-    image: "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?auto=format&fit=crop&w=800&q=80",
+    // Transparent clear dental aligner being held/worn
+    image: "https://images.pexels.com/photos/6812477/pexels-photo-6812477.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "cosmetic",
@@ -79,7 +84,8 @@ export const services = [
     description:
       "Enhance the appearance of your smile with modern cosmetic dental procedures.",
     icon: "Star",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
+    // Beautiful smile makeover / cosmetic dental result
+    image: "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "extraction",
@@ -87,7 +93,8 @@ export const services = [
     description:
       "Safe and comfortable tooth removal when necessary using professional techniques.",
     icon: "Shield",
-    image: "https://images.unsplash.com/photo-1581594549595-35f6edc7b762?auto=format&fit=crop&w=800&q=80",
+    // Dentist performing tooth extraction with dental forceps
+    image: "https://images.pexels.com/photos/3845741/pexels-photo-3845741.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "filling",
@@ -95,7 +102,8 @@ export const services = [
     description:
       "Restore damaged teeth caused by cavities while preserving natural tooth structure.",
     icon: "Zap",
-    image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80",
+    // Dentist applying composite filling to restore a tooth
+    image: "https://images.pexels.com/photos/3845769/pexels-photo-3845769.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "preventive",
@@ -103,7 +111,8 @@ export const services = [
     description:
       "Regular examinations and preventive treatments that help maintain excellent oral health.",
     icon: "Heart",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80",
+    // Dentist educating patient during preventive examination
+    image: "https://images.pexels.com/photos/5355954/pexels-photo-5355954.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     id: "consultation",
@@ -111,7 +120,8 @@ export const services = [
     description:
       "Personalized consultation to understand your dental needs and recommend the most suitable treatment.",
     icon: "MessageCircle",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
+    // Dentist discussing treatment plan with patient
+    image: "https://images.pexels.com/photos/7584536/pexels-photo-7584536.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
 ];
 
