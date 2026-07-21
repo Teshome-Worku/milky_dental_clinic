@@ -1,28 +1,81 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { galleryImages } from "@/data/content";
 
+const categories = [
+  "All",
+  "Doctor",
+  "Clinic",
+  "Reception",
+  "Treatment Rooms",
+  "Patients & Guests",
+  "Kids Corner",
+  "Exterior",
+] as const;
+
+type GalleryCategory = (typeof categories)[number];
+
 export function GallerySection() {
+  const [activeCategory, setActiveCategory] = useState<GalleryCategory>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
+  const filteredImages = useMemo(
+    () =>
+      activeCategory === "All"
+        ? galleryImages
+        : galleryImages.filter((image) => image.category === activeCategory),
+    [activeCategory]
+  );
+
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
-
-  const prev = useCallback(() => {
-    setLightboxIndex((i) =>
-      i !== null ? (i - 1 + galleryImages.length) % galleryImages.length : 0
+  const previousImage = useCallback(() => {
+    setLightboxIndex((index) =>
+      index === null ? null : (index - 1 + filteredImages.length) % filteredImages.length
     );
-  }, []);
-
-  const next = useCallback(() => {
-    setLightboxIndex((i) =>
-      i !== null ? (i + 1) % galleryImages.length : 0
+  }, [filteredImages.length]);
+  const nextImage = useCallback(() => {
+    setLightboxIndex((index) =>
+      index === null ? null : (index + 1) % filteredImages.length
     );
-  }, []);
+  }, [filteredImages.length]);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") previousImage();
+      if (event.key === "ArrowRight") nextImage();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [closeLightbox, lightboxIndex, nextImage, previousImage]);
+
+  const selectCategory = (category: GalleryCategory) => {
+    setActiveCategory(category);
+    setLightboxIndex(null);
+  };
+
+  const handleTouchEnd = (touchEndX: number) => {
+    if (touchStartX === null) return;
+    const swipeDistance = touchEndX - touchStartX;
+    if (Math.abs(swipeDistance) > 50) {
+      swipeDistance > 0 ? previousImage() : nextImage();
+    }
+    setTouchStartX(null);
+  };
+
+  const activeImage = lightboxIndex === null ? null : filteredImages[lightboxIndex];
 
   return (
     <section
@@ -36,131 +89,126 @@ export function GallerySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="mb-10 text-center lg:mb-12"
         >
-          <span className="inline-block text-sm font-semibold text-[#1DA1F2] uppercase tracking-wider mb-3">
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-[#1DA1F2]">
             Clinic Gallery
           </span>
-          <h2
-            id="gallery-heading"
-            className="text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4"
-          >
+          <h2 id="gallery-heading" className="mb-4 text-3xl font-bold text-[#0F172A] lg:text-4xl">
             Inside Our Clinic
           </h2>
-          <p className="text-[#475569] max-w-2xl mx-auto">
-            Take a look inside Dr. Milky Derara Specialty Dental Clinic. Our
-            modern, clean, and welcoming environment is designed for your
-            comfort.
+          <p className="mx-auto max-w-2xl text-[#475569]">
+            Explore our modern clinic, welcoming spaces, and the people behind your confident smile.
           </p>
         </motion.div>
 
-        {/* Masonry-style grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={image.src}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
-              className="break-inside-avoid"
-            >
-              <button
-                onClick={() => openLightbox(index)}
-                className="group relative w-full overflow-hidden rounded-[20px] block soft-shadow"
-                aria-label={`View larger: ${image.alt}`}
+        <div className="mb-9 -mx-6 overflow-x-auto px-6 pb-3 sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0" aria-label="Gallery categories">
+          <div className="flex w-max gap-2.5 lg:mx-auto">
+            {categories.map((category) => {
+              const isActive = activeCategory === category;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => selectCategory(category)}
+                  aria-pressed={isActive}
+                  className={`rounded-full border px-4 py-2.5 text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
+                    isActive
+                      ? "border-[#1DA1F2] bg-[#1DA1F2] text-white shadow-[0_8px_20px_rgba(29,161,242,0.24)]"
+                      : "border-[#E2E8F0] bg-white text-[#475569] hover:border-[#1DA1F2] hover:text-[#1DA1F2] hover:shadow-[0_6px_16px_rgba(15,23,42,0.08)]"
+                  }`}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="columns-1 space-y-4 sm:columns-2 lg:columns-3 xl:columns-4"
+          >
+            {filteredImages.map((image, index) => (
+              <motion.div
+                key={image.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: Math.min(index, 7) * 0.04 }}
+                className="break-inside-avoid"
               >
-                <div className="relative w-full">
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(index)}
+                  className="group relative block w-full overflow-hidden rounded-[20px] soft-shadow"
+                  aria-label={`View larger: ${image.title}`}
+                >
                   <Image
-                    src={image.src}
+                    src={image.image}
                     alt={image.alt}
-                    width={400}
-                    height={300}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={600}
+                    height={450}
+                    className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                </div>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[#1DA1F2]/0 group-hover:bg-[#1DA1F2]/20 transition-all duration-300 flex items-center justify-center">
-                  <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
-                </div>
-                {/* Category label */}
-                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#1DA1F2] px-2.5 py-1 rounded-full">
+                  <div className="absolute inset-0 flex items-center justify-center bg-[#0F172A]/0 transition-colors duration-300 group-hover:bg-[#0F172A]/25">
+                    <ZoomIn className="h-8 w-8 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
+                  </div>
+                  <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-[#1DA1F2] opacity-0 shadow-sm backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                     {image.category}
                   </span>
-                </div>
-              </button>
-            </motion.div>
-          ))}
-        </div>
+                </button>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Lightbox */}
       <AnimatePresence>
-        {lightboxIndex !== null && (
+        {activeImage && lightboxIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
             onClick={closeLightbox}
             role="dialog"
             aria-modal="true"
-            aria-label="Image gallery lightbox"
+            aria-label={`${activeImage.title} lightbox`}
           >
-            {/* Close button */}
-            <button
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10"
-              aria-label="Close lightbox"
-            >
-              <X className="w-5 h-5" aria-hidden="true" />
+            <button type="button" onClick={closeLightbox} className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20" aria-label="Close lightbox">
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+            <button type="button" onClick={(event) => { event.stopPropagation(); previousImage(); }} className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:left-5" aria-label="Previous image">
+              <ChevronLeft className="h-6 w-6" aria-hidden="true" />
             </button>
 
-            {/* Navigation: previous */}
-            <button
-              onClick={(e) => { e.stopPropagation(); prev(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="w-5 h-5" aria-hidden="true" />
-            </button>
-
-            {/* Image */}
             <motion.div
-              key={lightboxIndex}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="relative max-w-4xl max-h-[85vh] w-full"
-              onClick={(e) => e.stopPropagation()}
+              key={activeImage.id}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.2 }}
+              className="w-full max-w-5xl"
+              onClick={(event) => event.stopPropagation()}
+              onTouchStart={(event) => setTouchStartX(event.touches[0].clientX)}
+              onTouchEnd={(event) => handleTouchEnd(event.changedTouches[0].clientX)}
             >
-              <Image
-                src={galleryImages[lightboxIndex].src}
-                alt={galleryImages[lightboxIndex].alt}
-                width={1200}
-                height={900}
-                className="object-contain max-h-[80vh] w-full rounded-2xl"
-                priority
-              />
-              <p className="text-center text-white/70 text-sm mt-3">
-                {galleryImages[lightboxIndex].alt}
-              </p>
-              <p className="text-center text-white/40 text-xs mt-1">
-                {lightboxIndex + 1} / {galleryImages.length}
-              </p>
+              <Image src={activeImage.image} alt={activeImage.alt} width={1400} height={1050} className="max-h-[78vh] w-full rounded-2xl object-contain" priority />
+              <div className="mt-3 text-center">
+                <p className="text-sm font-medium text-white">{activeImage.title}</p>
+                <p className="mt-1 text-xs text-white/55">{lightboxIndex + 1} of {filteredImages.length} · {activeImage.category}</p>
+              </div>
             </motion.div>
 
-            {/* Navigation: next */}
-            <button
-              onClick={(e) => { e.stopPropagation(); next(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10"
-              aria-label="Next image"
-            >
-              <ChevronRight className="w-5 h-5" aria-hidden="true" />
+            <button type="button" onClick={(event) => { event.stopPropagation(); nextImage(); }} className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:right-5" aria-label="Next image">
+              <ChevronRight className="h-6 w-6" aria-hidden="true" />
             </button>
           </motion.div>
         )}
