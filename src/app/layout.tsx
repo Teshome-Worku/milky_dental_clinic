@@ -21,6 +21,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: "/icon.svg",
+  },
   title: {
     default: "Dr. Milky Derara Specialty Dental Clinic | Addis Ababa",
     template: "%s | Dr. Milky Dental Clinic",
