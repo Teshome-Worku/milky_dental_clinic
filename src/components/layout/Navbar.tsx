@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/data/content";
+import { scrollToSection } from "@/lib/navigation";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -15,10 +16,20 @@ const navLinks = [
 ];
 
 // Refined clinic logo SVG matching the gold tooth + M brand mark
-function ClinicLogo({ scrolled }: { scrolled: boolean }) {
+function ClinicLogo({
+  scrolled,
+  onNavigateHome,
+}: {
+  scrolled: boolean;
+  onNavigateHome: () => void;
+}) {
   return (
     <Link
-      href="/"
+      href="#home"
+      onClick={(event) => {
+        event.preventDefault();
+        onNavigateHome();
+      }}
       className="flex items-center gap-3 group"
       aria-label="Dr. Milky Dental Clinic – Home"
     >
@@ -119,6 +130,12 @@ export function Navbar() {
     setActiveSection(href);
   };
 
+  const handleLogoClick = () => {
+    setMobileOpen(false);
+    setActiveSection("#home");
+    scrollToSection("#home");
+  };
+
   const navTextClass = isScrolled ? "text-[#475569]" : "text-[#0F172A]/80";
   const navActiveClass = isScrolled
     ? "text-[#1DA1F2] bg-[#e8f4fd]"
@@ -138,7 +155,7 @@ export function Navbar() {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-[72px]">
-            <ClinicLogo scrolled={isScrolled} />
+            <ClinicLogo scrolled={isScrolled} onNavigateHome={handleLogoClick} />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
