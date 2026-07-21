@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MapPin, Phone, MessageCircle, Navigation, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Navigation, ExternalLink } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/BrandSocialIcons";
 import { siteConfig } from "@/data/content";
 import { OpeningHours } from "@/components/shared/OpeningHours";
 
@@ -100,7 +101,7 @@ export function ContactSection() {
                 className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold text-sm py-3 rounded-[14px] hover:bg-[#1ebd5b] transition-all"
                 aria-label="Chat on WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                <WhatsAppIcon variant="white" className="w-4 h-4" />
                 WhatsApp
               </a>
               <a

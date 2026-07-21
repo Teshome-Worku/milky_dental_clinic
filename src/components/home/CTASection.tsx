@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/BrandSocialIcons";
 import { siteConfig } from "@/data/content";
 
 export function CTASection() {
@@ -101,7 +102,7 @@ export function CTASection() {
                 className="inline-flex items-center gap-2 bg-[#25D366]/90 hover:bg-[#25D366] text-white font-semibold px-7 py-3.5 rounded-[14px] transition-all duration-200"
                 aria-label="Contact us on WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                <WhatsAppIcon variant="white" className="w-4 h-4" />
                 WhatsApp
               </a>
             </motion.div>

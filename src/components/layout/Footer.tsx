@@ -1,15 +1,12 @@
 "use client";
 
+import { Phone, MapPin, Clock, Heart } from "lucide-react";
 import {
-  Phone,
-  MapPin,
-  Clock,
-  Facebook,
-  Instagram,
-  MessageCircle,
-  Send,
-  Heart,
-} from "lucide-react";
+  FacebookIcon,
+  InstagramIcon,
+  WhatsAppIcon,
+  TelegramIcon,
+} from "@/components/shared/BrandSocialIcons";
 import { siteConfig } from "@/data/content";
 
 const footerLinks = [
@@ -89,37 +86,37 @@ export function Footer() {
                 href={siteConfig.socialMedia.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-[#1DA1F2] transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Follow us on Facebook"
               >
-                <Facebook className="w-4 h-4" aria-hidden="true" />
+                <FacebookIcon className="w-9 h-9" />
               </a>
               <a
                 href={siteConfig.socialMedia.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-[#1DA1F2] transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Follow us on Instagram"
               >
-                <Instagram className="w-4 h-4" aria-hidden="true" />
+                <InstagramIcon className="w-9 h-9" />
               </a>
               <a
                 href={`https://wa.me/${siteConfig.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-[#25D366] transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Contact us on WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                <WhatsAppIcon className="w-9 h-9" />
               </a>
               <a
                 href={siteConfig.socialMedia.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-[#0088cc] transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                 aria-label="Contact us on Telegram"
               >
-                <Send className="w-4 h-4" aria-hidden="true" />
+                <TelegramIcon className="w-9 h-9" />
               </a>
             </div>
           </div>
