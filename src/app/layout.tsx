@@ -22,7 +22,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/favicon-dr-milky.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon-dr-milky.svg",
+    apple: "/favicon-dr-milky.svg",
   },
   title: {
     default: "Dr. Milky Derara Specialty Dental Clinic | Addis Ababa",
