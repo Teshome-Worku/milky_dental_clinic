@@ -65,6 +65,24 @@ export function HeroSection() {
     >
       {/* ── Background Slideshow ── */}
       <div className="absolute inset-0" aria-hidden="true">
+        <motion.div
+          className="absolute -top-24 -left-20 hidden h-72 w-72 rounded-full bg-[#1DA1F2]/12 blur-3xl lg:block"
+          animate={{ y: [0, 16, 0], scale: [1, 1.06, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-16 right-0 hidden h-56 w-56 rounded-full bg-[#D4AF37]/12 blur-3xl lg:block"
+          animate={{ y: [0, -18, 0], scale: [1, 1.08, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 left-6 hidden rounded-full border border-white/40 bg-white/55 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#1DA1F2] shadow-sm backdrop-blur-md sm:block"
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          Gentle care, modern smiles
+        </motion.div>
+
         <AnimatePresence initial={false}>
           <motion.div
             key={current}
@@ -175,11 +193,10 @@ export function HeroSection() {
             role="tab"
             aria-selected={current === i}
             aria-label={`Slide ${i + 1}`}
-            className={`rounded-full transition-all duration-500 ${
-              current === i
+            className={`rounded-full transition-all duration-500 ${current === i
                 ? "w-8 h-2 bg-[#1DA1F2] shadow-sm"
                 : "w-2 h-2 bg-[#0F172A]/25 hover:bg-[#1DA1F2]/50"
-            }`}
+              }`}
           />
         ))}
       </div>
