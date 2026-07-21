@@ -26,10 +26,10 @@ const slides = [
     contentAlign: "center" as const,
   },
   {
-    src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1920&q=80",
-    alt: "Happy patient receiving premium dental care",
-    position: "center 30%",
-    contentAlign: "left" as const,
+    src: "/images/clinic/reception-desk.jpg",
+    alt: "Welcoming reception at Dr. Milky Specialty Dental Clinic",
+    position: "center center",
+    contentAlign: "center" as const,
   },
 ];
 
