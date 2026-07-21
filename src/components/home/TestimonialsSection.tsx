@@ -105,7 +105,7 @@ export function TestimonialsSection() {
 
         {/* Carousel track */}
         <div
-          className="relative overflow-hidden"
+          className="relative px-[56px] sm:px-[72px]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onPointerDown={handlePointerDown}
@@ -113,52 +113,54 @@ export function TestimonialsSection() {
           aria-roledescription="carousel"
           aria-label="Patient testimonials"
         >
-          <div
-            ref={trackRef}
-            className="flex gap-5 transition-transform duration-500 ease-in-out select-none"
-            style={{ transform: `translateX(${translateX})` }}
-          >
-            {testimonials.map((t) => (
-              <article
-                key={t.id}
-                className="bg-white rounded-[20px] p-6 shadow-sm flex-shrink-0 flex flex-col"
-                style={{ width: cardWidth }}
-                aria-label={`Review by ${t.name}`}
-              >
-                <Quote className="w-7 h-7 text-[#1DA1F2] opacity-20 mb-3" aria-hidden="true" />
-                <StarRow count={t.rating} />
-                <blockquote className="mt-3 flex-1">
-                  <p className="text-[#475569] text-sm leading-relaxed italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </blockquote>
-                <div className="mt-5 flex items-center gap-3 pt-4 border-t border-[#F1F5F9]">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#1DA1F2] to-[#0e86d0] flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs font-bold">{t.initials}</span>
+          <div className="overflow-hidden py-4 -my-4">
+            <div
+              ref={trackRef}
+              className="flex gap-5 transition-transform duration-500 ease-in-out select-none"
+              style={{ transform: `translateX(${translateX})` }}
+            >
+              {testimonials.map((t) => (
+                <article
+                  key={t.id}
+                  className="bg-white rounded-[20px] p-6 shadow-sm flex-shrink-0 flex flex-col"
+                  style={{ width: cardWidth }}
+                  aria-label={`Review by ${t.name}`}
+                >
+                  <Quote className="w-7 h-7 text-[#1DA1F2] opacity-20 mb-3" aria-hidden="true" />
+                  <StarRow count={t.rating} />
+                  <blockquote className="mt-3 flex-1">
+                    <p className="text-[#475569] text-sm leading-relaxed italic">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </blockquote>
+                  <div className="mt-5 flex items-center gap-3 pt-4 border-t border-[#F1F5F9]">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#1DA1F2] to-[#0e86d0] flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-xs font-bold">{t.initials}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#0F172A]">{t.name}</p>
+                      <p className="text-xs text-[#94a3b8]">Verified Patient</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[#0F172A]">{t.name}</p>
-                    <p className="text-xs text-[#94a3b8]">Verified Patient</p>
-                  </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
 
           {/* Arrow buttons */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white transition-all z-10"
+            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] rounded-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white transition-colors duration-300 z-10"
             aria-label="Previous review"
           >
-            <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+            <ChevronLeft className="w-6 h-6" aria-hidden="true" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white transition-all z-10"
+            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] rounded-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white transition-colors duration-300 z-10"
             aria-label="Next review"
           >
-            <ChevronRight className="w-5 h-5" aria-hidden="true" />
+            <ChevronRight className="w-6 h-6" aria-hidden="true" />
           </button>
         </div>
 

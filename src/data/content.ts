@@ -39,7 +39,7 @@ export const services = [
     description:
       "Routine examinations that help detect dental problems early and maintain long-term oral health.",
     icon: "Stethoscope",
-    image: "https://images.unsplash.com/photo-1606265863819-222e574c8614?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "cleaning",
@@ -47,7 +47,7 @@ export const services = [
     description:
       "Professional cleaning removes plaque and tartar while helping prevent gum disease and maintaining healthy teeth.",
     icon: "Sparkles",
-    image: "https://images.unsplash.com/photo-1598256989814-9b2f693e5069?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1590664095641-7fa05f689813?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "whitening",
@@ -63,7 +63,7 @@ export const services = [
     description:
       "Correct misaligned teeth and improve bite alignment for healthier, more confident smiles.",
     icon: "Brackets",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "aligners",
@@ -71,7 +71,7 @@ export const services = [
     description:
       "Comfortable and nearly invisible orthodontic treatment for properly aligned teeth.",
     icon: "Eye",
-    image: "https://images.unsplash.com/photo-1584483737276-f8b1cba29a00?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "cosmetic",
@@ -79,7 +79,7 @@ export const services = [
     description:
       "Enhance the appearance of your smile with modern cosmetic dental procedures.",
     icon: "Star",
-    image: "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "extraction",
