@@ -96,57 +96,64 @@ export function FAQSection() {
   return (
     <section id="faq" className="section-padding bg-[#F8FAFC]" aria-labelledby="faq-heading">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-block text-sm font-semibold text-[#1DA1F2] uppercase tracking-wider mb-3">FAQ</span>
-            <h2 id="faq-heading" className="text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4 leading-tight">
-              Frequently Asked <span className="text-gradient">Questions</span>
-            </h2>
-            <p className="text-[#475569] leading-relaxed mb-8 text-sm">
-              Have questions about our services or booking an appointment? We&apos;ve answered the most common ones below.
-            </p>
-            {/* Help card */}
-            <div className="bg-white rounded-2xl p-5 shadow-sm border border-[#E2E8F0]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-[#EFF8FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <HelpCircle className="w-5 h-5 text-[#1DA1F2]" aria-hidden="true" />
-                </div>
-                <p className="font-semibold text-[#0F172A] text-sm">Still have questions?</p>
-              </div>
-              <p className="text-[#475569] text-sm mb-4">We&apos;re here to help. Call us or book a consultation and we&apos;ll be happy to assist.</p>
-              <div className="flex flex-col gap-2">
-                <button onClick={scrollToContact} className="btn-primary text-sm py-2.5 w-full justify-center">
-                  Book a Consultation
-                </button>
-                <a href={`tel:${siteConfig.phone}`} className="btn-secondary text-sm py-2.5 w-full justify-center">
-                  <Phone className="w-4 h-4" aria-hidden="true" />
-                  Call Now
-                </a>
-              </div>
-            </div>
-          </motion.div>
+      <div className="container-custom max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
+          <span className="inline-block text-sm font-semibold text-[#1DA1F2] uppercase tracking-wider mb-3">FAQ</span>
+          <h2 id="faq-heading" className="text-3xl lg:text-4xl font-bold text-[#0F172A] mb-4 leading-tight">
+            Frequently Asked <span className="text-gradient">Questions</span>
+          </h2>
+          <p className="text-[#475569] leading-relaxed text-sm max-w-2xl mx-auto">
+            Have questions about our services or booking an appointment? We&apos;ve answered the most common ones below.
+          </p>
+        </motion.div>
 
-          {/* FAQ List — single open */}
-          <div className="lg:col-span-2 space-y-3">
-            {faqs.map((faq, i) => (
-              <FAQItem
-                key={faq.question}
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={openIndex === i}
-                onToggle={() => toggle(i)}
-                index={i}
-              />
-            ))}
-          </div>
+        {/* FAQ List — single open */}
+        <div className="space-y-3 mb-10">
+          {faqs.map((faq, i) => (
+            <FAQItem
+              key={faq.question}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openIndex === i}
+              onToggle={() => toggle(i)}
+              index={i}
+            />
+          ))}
         </div>
+
+        {/* Help card */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-md mx-auto"
+        >
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E2E8F0]">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 bg-[#EFF8FF] rounded-xl flex items-center justify-center flex-shrink-0">
+                <HelpCircle className="w-5 h-5 text-[#1DA1F2]" aria-hidden="true" />
+              </div>
+              <p className="font-semibold text-[#0F172A] text-base">Still have questions?</p>
+            </div>
+            <p className="text-[#475569] text-sm mb-5">We&apos;re here to help. Call us or book a consultation and we&apos;ll be happy to assist.</p>
+            <div className="flex flex-col gap-3">
+              <button onClick={scrollToContact} className="btn-primary text-sm py-3 w-full justify-center">
+                Book a Consultation
+              </button>
+              <a href={`tel:${siteConfig.phone}`} className="btn-secondary text-sm py-3 w-full justify-center">
+                <Phone className="w-4 h-4" aria-hidden="true" />
+                Call Now
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
